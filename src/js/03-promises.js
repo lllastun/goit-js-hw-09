@@ -4,6 +4,19 @@ const inputStepElement = document.querySelector('input[name="step"]');
 const inputAmountElement = document.querySelector('input[name="amount"]');
 const buttonSubmintElement = document.querySelector('button');
 
+function createPromise(position, delay) {
+  return promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const shouldResolve = Math.random() > 0.3;
+      if (shouldResolve) {
+        return resolve({ position, delay });
+      } else {
+        return reject({ position, delay });
+      }
+    }, delay);
+  });
+}
+
 const onSubmint = event => {
   event.preventDefault();
   const inputDelay = +inputDelayElement.value;
@@ -26,17 +39,6 @@ const onSubmint = event => {
   }
 };
 
-function createPromise(position, delay) {
-  return promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const shouldResolve = Math.random() > 0.3;
-      if (shouldResolve) {
-        return resolve({ position, delay });
-      } else {
-        return reject({ position, delay });
-      }
-    }, delay);
-  });
-}
+
 
 buttonSubmintElement.addEventListener('click', onSubmint);
