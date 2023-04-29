@@ -27,7 +27,7 @@ const onSubmint = event => {
 };
 
 function createPromise(position, delay) {
-  return (promise = new Promise((resolve, reject) => {
+  return promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       const shouldResolve = Math.random() > 0.3;
       if (shouldResolve) {
@@ -36,7 +36,7 @@ function createPromise(position, delay) {
         return reject({ position, delay });
       }
     }, delay);
-  }));
+  });
 }
 
 buttonSubmintElement.addEventListener('click', onSubmint);
